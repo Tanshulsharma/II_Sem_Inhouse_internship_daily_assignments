@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH 2026 | SKIT Jaipur</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#1f1f1f;
+    color:white;
+}
+
+/* Navbar */
+
+nav{
+    width:100%;
+    background:#111;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    color:#d4af37;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#d4af37;
+}
+
+/* Hero */
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:70px;
+    color:#d4af37;
+}
+
+.hero h2{
+    margin-top:15px;
+    font-size:35px;
+}
+
+.hero p{
+    margin:20px;
+    font-size:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    background:#d4af37;
+    color:#111;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:white;
+}
+
+/* About */
+
+section{
+    padding:70px 10%;
+}
+
+.heading{
+    color:#d4af37;
+    text-align:center;
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.about p{
+    text-align:center;
+    line-height:30px;
+    font-size:18px;
+}
+
+/* Days */
+
+.days{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#2d2d2d;
+    padding:25px;
+    border-radius:15px;
+    border:2px solid #d4af37;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #d4af37;
+}
+
+.card h3{
+    color:#d4af37;
+    margin-bottom:15px;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+.card li{
+    margin:8px 0;
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px;
+    font-size:18px;
+}
+
+/* Footer */
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">PRAVAH 2026</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>PRAVAH 2026</h1>
+
+<h2>Swami Keshvanand Institute of Technology</h2>
+
+<p>Jaipur | 17 February - 23 February</p>
+
+<button>Register Now</button>
+
+</section>
+
+<section id="about" class="about">
+
+<h2 class="heading">About Pravah</h2>
+
+<p>
+PRAVAH is the Annual Cultural, Technical and Sports Festival of
+Swami Keshvanand Institute of Technology (SKIT), Jaipur.
+Experience seven exciting days filled with competitions,
+innovation, cultural performances, workshops,
+sports and unforgettable memories.
+</p>
+
+</section>
+
+<section id="events">
+
+<h2 class="heading">7-Day Schedule</h2>
+
+<div class="days">
+
+<div class="card">
+<h3>Day 1 (17 Feb)</h3>
+<ul>
+<li>Opening Ceremony</li>
+<li>Coding Contest</li>
+<li>Quiz Competition</li>
+<li>DJ Night</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 2 (18 Feb)</h3>
+<ul>
+<li>Hackathon</li>
+<li>AI Workshop</li>
+<li>Robotics</li>
+<li>Poster Presentation</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 3 (19 Feb)</h3>
+<ul>
+<li>Cricket</li>
+<li>Football</li>
+<li>Chess</li>
+<li>Volleyball</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 4 (20 Feb)</h3>
+<ul>
+<li>Dance Battle</li>
+<li>Singing</li>
+<li>Fashion Show</li>
+<li>Open Mic</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 5 (21 Feb)</h3>
+<ul>
+<li>Photography</li>
+<li>Painting</li>
+<li>Rangoli</li>
+<li>Treasure Hunt</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 6 (22 Feb)</h3>
+<ul>
+<li>Gaming Tournament</li>
+<li>Battle of Bands</li>
+<li>Stand-Up Comedy</li>
+<li>Celebrity Night</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Day 7 (23 Feb)</h3>
+<ul>
+<li>Prize Distribution</li>
+<li>Cultural Finale</li>
+<li>Closing Ceremony</li>
+<li>Fireworks</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2 class="heading">Contact</h2>
+
+<p><strong>Swami Keshvanand Institute of Technology (SKIT)</strong></p>
+
+<p>Jagatpura, Jaipur, Rajasthan</p>
+
+<p>Email: pravah@skit.ac.in</p>
+
+<p>Phone: +91-XXXXXXXXXX</p>
+
+</section>
+
+<footer>
+
+<h3 style="color:#d4af37;">PRAVAH 2026</h3>
+
+<p>Swami Keshvanand Institute of Technology, Jaipur</p>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
