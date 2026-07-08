@@ -1,0 +1,35 @@
+body{
+    background-color:#f4f4f4;
+}
+
+.card{
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+}
+
+.card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin:15px auto;
+}
+
+.even-card{
+    background-color:#dff6f5;
+}
+h1{
+    text-align: center;
+    padding-top: 10px;
+}
+.card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:15px auto;
+    border:3px solid #0d6efd;
+}
