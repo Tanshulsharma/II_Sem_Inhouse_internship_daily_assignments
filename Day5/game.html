@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banana Apple Tap Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #dff6ff, #b8f2c8);
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .game-area {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .fruit {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: left 0.3s ease, top 0.3s ease, transform 0.2s ease;
+    }
+
+    .fruit:active {
+      transform: scale(0.9);
+    }
+
+    .banana,
+    .apple {
+      font-size: 80px;
+    }
+
+    .info {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 18px;
+      z-index: 1000;
+    }
+
+    .message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.95);
+      padding: 20px 30px;
+      border-radius: 16px;
+      font-size: 28px;
+      font-weight: bold;
+      display: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .restart-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    .restart-btn:hover {
+      background: #3d9442;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div>Banana taps: <span id="bananaCount">0</span></div>
+    <div>Apple taps: <span id="appleCount">0</span></div>
+  </div>
+
+  <div class="game-area" id="gameArea">
+    <div class="fruit banana" id="banana">🍌</div>
+    <div class="fruit apple" id="apple">🍎</div>
+  </div>
+
+  <div class="message" id="gameMessage">
+    Game Over! Both fruits disappeared.
+    <br />
+    <button class="restart-btn" onclick="restartGame()">Restart</button>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById("gameArea");
+    const banana = document.getElementById("banana");
+    const apple = document.getElementById("apple");
+
+    const bananaCountEl = document.getElementById("bananaCount");
+    const appleCountEl = document.getElementById("appleCount");
+    const gameMessage = document.getElementById("gameMessage");
+
+    const fruits = {
+      banana: {
+        el: banana,
+        taps: 0,
+        size: 80,
+        maxTaps: Math.floor(Math.random() * 6) + 10 // 10 to 15
+      },
+      apple: {
+        el: apple,
+        taps: 0,
+        size: 80,
+        maxTaps: Math.floor(Math.random() * 6) + 10 // 10 to 15
+      }
+    };
+
+    function randomPosition(element, size) {
+      const maxX = window.innerWidth - size - 20;
+      const maxY = window.innerHeight - size - 20;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      element.style.left = x + "px";
+      element.style.top = y + "px";
+    }
+
+    function updateFruit(fruitName) {
+      const fruit = fruits[fruitName];
+      fruit.taps++;
+      fruit.size -= 5;
+
+      if (fruitName === "banana") {
+        bananaCountEl.textContent = fruit.taps;
+      } else {
+        appleCountEl.textContent = fruit.taps;
+      }
+
+      if (fruit.taps >= fruit.maxTaps || fruit.size <= 20) {
+        fruit.el.style.display = "none";
+        checkGameOver();
+        return;
+      }
+
+      fruit.el.style.fontSize = fruit.size + "px";
+      randomPosition(fruit.el, fruit.size);
+    }
+
+    function checkGameOver() {
+      const bananaGone = fruits.banana.el.style.display === "none";
+      const appleGone = fruits.apple.el.style.display === "none";
+
+      if (bananaGone && appleGone) {
+        gameMessage.style.display = "block";
+      }
+    }
+
+    banana.addEventListener("click", () => updateFruit("banana"));
+    apple.addEventListener("click", () => updateFruit("apple"));
+
+    function placeInitialFruits() {
+      randomPosition(banana, fruits.banana.size);
+      randomPosition(apple, fruits.apple.size);
+    }
+
+    function restartGame() {
+      fruits.banana.taps = 0;
+      fruits.apple.taps = 0;
+      fruits.banana.size = 80;
+      fruits.apple.size = 80;
+      fruits.banana.maxTaps = Math.floor(Math.random() * 6) + 10;
+      fruits.apple.maxTaps = Math.floor(Math.random() * 6) + 10;
+
+      banana.style.display = "flex";
+      apple.style.display = "flex";
+
+      banana.style.fontSize = "80px";
+      apple.style.fontSize = "80px";
+
+      bananaCountEl.textContent = "0";
+      appleCountEl.textContent = "0";
+
+      gameMessage.style.display = "none";
+
+      placeInitialFruits();
+    }
+
+    window.addEventListener("resize", placeInitialFruits);
+
+    placeInitialFruits();
+  </script>
+</body>
+</html>
